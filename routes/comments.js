@@ -16,7 +16,7 @@ router.post("/", async (req, res) => {
       data: addComment,
       message: "Comment Added Succesfully",
     });
-    console.log("Comment Added Succesfully");
+    // console.log("Comment Added Succesfully");
   } catch (error) {
     res.status(200).json({
       message: "Error Adding Comment",
