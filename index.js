@@ -19,7 +19,7 @@ mongoose.connect(process.env.MONGO_URL,{
     useNewUrlParser:true,
     useUnifiedTopology:true,
 }).then(console.log("Connected to MongoDB")).catch(err=>console.log(err))
-
+var port = process.env.PORT || 5000
 const storage=multer.diskStorage({
     destination:(req,file,cb)=>{
         cb(null,"images")
@@ -38,6 +38,6 @@ app.use("/api/users",userRoute)
 app.use("/api/posts",postRoute)
 app.use("/api/categories",categoryRoute)
 app.use("/api/comments",commentsRoute)
-app.listen("5000",()=>{
-    console.log("Backend is running")
+app.listen(port,()=>{
+    console.log(`Backend is running on port ${port}`)
 })
